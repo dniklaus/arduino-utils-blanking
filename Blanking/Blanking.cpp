@@ -9,6 +9,8 @@
 #include "TimerAdapter.h"
 #include "Blanking.h"
 
+// ========================================================
+
 class BlankTimerAdapter : public TimerAdapter
 {
 public:
@@ -28,6 +30,10 @@ private:
   Blanking* m_blanking;
 };
 
+// ========================================================
+
+const unsigned int Blanking::s_defaultBlankingMillis = 500;
+
 Blanking::Blanking(unsigned int blankingMillis)
 : m_timer(new Timer(new BlankTimerAdapter(this), true, blankingMillis))
 , m_signalIsBlanked(false)
@@ -35,6 +41,7 @@ Blanking::Blanking(unsigned int blankingMillis)
 
 Blanking::~Blanking()
 {
+  delete m_timer->adapter();
   delete m_timer; m_timer = 0;
 }
 

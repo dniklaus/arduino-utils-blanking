@@ -16,7 +16,7 @@ class Timer;
 class Blanking
 {
 public:
-  Blanking(unsigned int blankingMillis = 500);
+  Blanking(unsigned int blankingMillis = s_defaultBlankingMillis);
   virtual ~Blanking();
 
   bool isSignalBlanked();
@@ -25,6 +25,8 @@ public:
 private:
   Timer* m_timer;
   bool m_signalIsBlanked;
+
+  static const unsigned int s_defaultBlankingMillis;
 
 private: // forbidden default functions
   Blanking& operator = (const Blanking& );  // assignment operator
