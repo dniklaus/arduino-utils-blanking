@@ -35,7 +35,7 @@ private:
 const unsigned int Blanking::s_defaultBlankingMillis = 500;
 
 Blanking::Blanking(unsigned int blankingMillis)
-: m_timer(new Timer(new BlankTimerAdapter(this), true, blankingMillis))
+: m_timer(new Timer(new BlankTimerAdapter(this), Timer::IS_RECURRING, blankingMillis))
 , m_signalIsBlanked(false)
 { }
 
