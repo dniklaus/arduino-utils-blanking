@@ -6,7 +6,6 @@
  */
 
 #include "Timer.h"
-#include "TimerAdapter.h"
 #include "Blanking.h"
 
 // ========================================================
